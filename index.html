@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8"/>
+    <title>
+      Collgg
+    </title>
     <script src = "script.js" defer></script>
   </head>
   <main>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
       <body>
-          <!--Have a tabs section here that can go-to an about page and a search page-->
-        <div class = "tab">
+        <!--Tab section that can go-to an about page and a search page-->
         <h1>
           <a href = "vision.html"> Sooooo, what's the point?? </a>
         </h1>
-        <h2>
-          <table>
-            <th>
-              What I've learned
-            </th>
-            <th>
-              <button class = "tablinks" onclick = "openPage(event, 'Today')" id="defualtOpen"> Today </button>
-            </th>
-            <th>
-              <button class = "tablinks" onclick = "openPage(event, 'Before')"> Before </button>
-            </th>
+        <div class = "tab">
+        <table>
+          <th>
+            What I've learned
+          </th>
+          <th>
+            <button class = "tablinks" onclick = "openPage(event, 'Today')" id="defualtOpen"> Today </button>
+          </th>
+          <th>
+            <button class = "tablinks" onclick = "openPage(event, 'Before')"> Before </button>
+          </th>
          </table>
           <div id = "Today" class = "tabcontent">
-                  <!--<label> What have I learned </label> -->
             <input type = "text" name = "todayNote" id = "todayNote"> </input>
             <input type = "submit" name = "todaySubmit" id = "todaySubmit"> </input> <br>
             <h3>
@@ -34,13 +36,13 @@
                   <!--This gets converted into a markown file-->
                   <!--User organized markdown files into there own folder system (which is viewed as books)-->
                   <!--These books can be drug into the browser to be searched for keys and contents-->
-        </div>
+          </div>
           <div id = "Before" class = "tabcontent">
             <h3>
               <a href = "aboutBefore.html"> Learn about the concept of the before tab </a>
             </h3>
+          </div>
         </div>
-        </h2>
       </body>
   </main>
 </html>
