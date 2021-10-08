@@ -10,11 +10,26 @@ body {
 }
 
 h1 {
-    text-align: left;
+  text-align: left;
+  font-size: 10px;
 }
 
 h2 {
-    text-align: center;
+  text-align: center;
+  font-size: 28px
+}
+
+h3 {
+  font-size: 15px;
+}
+
+h4 {
+  text-align: left;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tab {
@@ -34,11 +49,11 @@ h2 {
  }
 
 .tab button:hover {
-  background-color: #ddd;
+  background-color: rgb(218, 223, 195);
 }
 
 .tab button.active {
- /* background-color: #ccc; */
+  background-color: #ccc;
 }
 
 .tabcontent {
