@@ -1,17 +1,36 @@
 <!DOCTYPE html>
+<html>
   <main>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
       <body>
-          <!--Have a tabs section here that can go-to an about page and a search page-->
           <h1>
-              What I've Learned
+            Collgg
           </h1>
-          <h2>
-              upload file here
-              <!--User uploads screen shot of notes then explains what they've learned-->
-              <!--This gets converted into a markown file-->
-              <!--User organized markdown files into there own folder system (which is viewed as books)-->
-              <!--These books can be drug into the browser to be searched for keys and contents-->
-          </h2>
+
+          <!--Have a tabs section here that can go-to an about page and a search page-->
+	  <script src = "script.js"></script>
+	  <h1>
+	    <div class = "tab">
+	      <button class = "tablinks" onclick = "openPage(event, 'Today')" id="defualtOpen"> Today </button>
+	      <button class = "tablinks" onclick = "openPage(event, 'Before')"> Before </button>
+
+	      <div id = "Today" class = "tabcontent">
+                <h2>
+	            <label> What have I learned </label>
+	            <input type = "text" name = "note" id = "note"> </input>
+	            <input type = "submit" name = "submit" id = "submit"> </input>
+                    <!--User uploads screen shot of notes then explains what they've learned-->
+                    <!--This gets converted into a markown file-->
+                    <!--User organized markdown files into there own folder system (which is viewed as books)-->
+                    <!--These books can be drug into the browser to be searched for keys and contents-->
+                </h2>
+	      </div>
+
+	    <div id = "Before" class = "tabcontent">
+	      <h3> Before </h3>
+	      <p> What I've learned before </p>
+	    </div>
+	  </h1>
       </body>
   </main>
+</html>
