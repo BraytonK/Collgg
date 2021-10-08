@@ -7,28 +7,30 @@
     </title>
     <script src = "script.js" defer></script>
   </head>
-  <main>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-      <body>
+  <body>
+    <main>
+      <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
         <!--Tab section that can go-to an about page and a search page-->
         <h1>
           <a href = "vision.html"> Sooooo, what's the point?? </a>
         </h1>
         <div class = "tab">
         <table>
-          <th>
-            What I've learned
-          </th>
-          <th>
-            <button class = "tablinks" onclick = "openPage(event, 'Today')" id="defualtOpen"> Today </button>
-          </th>
-          <th>
-            <button class = "tablinks" onclick = "openPage(event, 'Before')"> Before </button>
-          </th>
+          <tr>
+            <th>
+              What I've learned
+            </th>
+            <th>
+              <button class = "tablinks" onclick = "openPage(event, 'Today')" id="defualtOpen"> Today </button>
+            </th>
+            <th>
+              <button class = "tablinks" onclick = "openPage(event, 'Before')"> Before </button>
+            </th>
+          </tr>
          </table>
           <div id = "Today" class = "tabcontent">
-            <input type = "text" name = "todayNote" id = "todayNote"> </input>
-            <input type = "submit" name = "todaySubmit" id = "todaySubmit"> </input> <br>
+            <input type = "text" name = "todayNote" id = "todayNote"/>
+            <input type = "submit" name = "todaySubmit" id = "todaySubmit"/> <br>
             <h3>
               <a href = "aboutToday.html"> Learn about the concept of the today tab </a>
             </h3>
@@ -43,6 +45,6 @@
             </h3>
           </div>
         </div>
-      </body>
-  </main>
+    </main>
+  </body>
 </html>
