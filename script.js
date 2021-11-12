@@ -75,6 +75,12 @@ function startup() {
   // put the link wherever you want
   start.appendChild(a);
   document.getElementById("Before").appendChild(start);
+
+  download("Create a fresh Collgg Page::Click the 'new page' button at the bottom of the 'before' section");
+  download("Save current Collgg page::Right click -> 'save as' , should work with any browser");
+  download("Make my own Collgg::Clone 'Collgg' from braytonk.github.io");
+  download("Collgg 'Today' tab Sytax::Title + two colons + a brief description of what you've learned");
+  download("Tutorial for Collgg location::Under the 'Sooooo, what's the point??' tab")
 }
 
 // Start file download.
