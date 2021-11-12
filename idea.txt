@@ -1,0 +1,4 @@
+//Put id in name
+//User uploads directory
+//Website only reads names and then there is a key file that the user uploads
+//The document matches the id to the table of contents (concepts + related keywords) file and then only touches the files necessary during the search

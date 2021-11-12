@@ -1,3 +1,13 @@
+let selectedFile = document.getElementById("picker").files[0];
+let reader = new FileReader();
+reader.addEventListener("loadend", () => { let data = reader.result; });
+interpret(reader.readAsText(selectedFile));
+
+function interpret(fileData) {
+  console.log(fileData);
+  let concept = document.getElementById("documentConcept");
+  concept.textContent = "hello";
+}
 function openPage(evt, pageName) {
   let i, tabcontent, tablinks;
 
@@ -16,7 +26,9 @@ function openPage(evt, pageName) {
 }
 
 function download(filename, text) {
+  // Creates element in the DOM
   var element = document.createElement('a');
+
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("<h1>" + text + "</h1>"));
   element.setAttribute('download', filename);
 
