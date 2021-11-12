@@ -25,27 +25,15 @@ function openPage(evt, pageName) {
   evt.currentTarget.className += " active";
 }
 
-function download(text) {
+function download(filename, text) {
   // Creates element in the DOM
-  var lines = text.split("::");
   let snippet = document.createElement('div');
   snippet.classList.add('snippet');
-  if (lines.length > 1) {
-    let snippetHeader = document.createElement("h5");
-    snippetHeader.textContent = lines[0];
-    let snippetText = document.createElement("h3");
-    snippetText.textContent = lines[1];
-    snippet.appendChild(snippetHeader);
-    snippet.appendChild(snippetText);
-  }
-  else {
-    if (lines.length > 0) {
-      let snippetText = document.createTextNode(lines[0]);
-      snippet.appendChild(snippetText);
-    }
-  }
-  document.getElementById("Before").insertBefore(snippet, document.getElementById("Before").firstChild);
-  //
+  snippet.classList.add('tri-right');
+  snippet.classList.add('left-top');
+  let snippetText = document.createTextNode(text);
+  snippet.appendChild(snippetText);
+  document.getElementById("Before").appendChild(snippet);
 
 
 
@@ -61,7 +49,6 @@ function download(text) {
 function startup() {
   // create the link to trigger download
   // you could alternatively fetch an existing tag and update it
-  var start = document.createElement('h3');
   var a = document.createElement('a');
 
   // send as type application/octet-stream to force download, not in browser
@@ -70,19 +57,31 @@ function startup() {
       btoa("<html>"+ document.getElementsByTagName('html')[0].outerHTML + 
       "</html>");
 
-  a.innerText = "New Page";
+  a.innerText = "Download this page";
 
   // put the link wherever you want
-  start.appendChild(a);
-  document.getElementById("Before").appendChild(start);
+  document.getElementById().appendChild(a);
+
+  var txtFile = new XMLHttpRequest();
+  txtFile.open("GET", "http://tumult.com/support/examples/dynamic-javascript-content-txt-file/text.txt", true);
+  txtFile.onreadystatechange = function() {
+  if (txtFile.readyState === 4) { // Makes sure the document is ready to parse.
+  if (txtFile.status === 200) { // Makes sure the file exists.
+  allText = txtFile.responseText;
+  //lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+  var customTextElement2 = document.getElementById('f0');
+  customTextElement2.innerHTML = txtFile.responseText;
+  }
+  }
+  }
+  txtFile.send(null)
 }
 
 // Start file download.
 document.getElementById("todaySubmit").addEventListener("click", function(){
   // Generate download of hello.txt file with some content
   var text = document.getElementById("todayNote").value;
-
   var filename = "myFormattedNote.html";
   
-  download(text);
+  download(filename, text);
 }, false);
