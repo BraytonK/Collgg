@@ -27,26 +27,23 @@ function openPage(evt, pageName) {
 
 function download(text) {
   // Creates element in the DOM
-  var lines = text.split("::");
+  // var lines = text.split("::");
   let snippet = document.createElement('div');
+
   snippet.classList.add('snippet');
-  if (lines.length > 1) {
-    let snippetHeader = document.createElement("h5");
-    snippetHeader.textContent = lines[0];
-    let snippetText = document.createElement("h3");
-    snippetText.textContent = lines[1];
-    snippet.appendChild(snippetHeader);
-    snippet.appendChild(snippetText);
-  }
-  else {
-    if (lines.length > 0) {
-      let snippetText = document.createTextNode(lines[0]);
-      snippet.appendChild(snippetText);
-    }
-  }
+  snippet.innerHTML = urlify(text);
   document.getElementById("Before").insertBefore(snippet, document.getElementById("Before").firstChild);
   //
+  }
 
+  function urlify(text) {
+    var urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function(url) {
+      return '<a href="' + url + '">' + url + '</a>';
+    })
+    // or alternatively
+    // return text.replace(urlRegex, '<a href="$1">$1</a>')
+  }
 
 
 /**  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("<h1>" + text + "</h1>"));
@@ -56,23 +53,18 @@ function download(text) {
   */
   //element.click();
   //document.body.removeChild(element);
-}
 
 function startup() {
   // create the link to trigger download
   // you could alternatively fetch an existing tag and update it
-  var start = document.createElement('h3');
+  var start = document.createElement('p');
   var a = document.createElement('a');
   a.id = "clear";
   // send as type application/octet-stream to force download, not in browser
-  a.href = 
-      "data:application/octet-stream;base64," +
-      btoa("<html>"+ document.getElementsByTagName('html')[0].outerHTML + 
-      "</html>");
+  a.href = saveState();
 
-  a.innerText = "New Page";
+  a.innerText = "Save Page";
 
-  // put the link wherever you want
   start.appendChild(a);
   document.getElementById("Before").appendChild(start);
 
@@ -82,6 +74,20 @@ function startup() {
   download("Collgg 'Today' tab Sytax::Title + two colons + a brief description of what you've learned");
   download("Tutorial for Collgg location::Under the 'Sooooo, what's the point??' tab")*/
 
+}
+
+function saveState() {
+  let stateText = "data:application/octet-stream;base64,";
+  
+  let snippets = "download(\"test\");"; 
+  let start = document.getElementById('Before');
+  while (start.firstChild) {
+    snippets = snippets + "download(\"" + start.lastChild.innerText + "\"); ";
+    start.removeChild(start.lastChild);
+  }
+  stateText = stateText + btoa("<html>"+ document.getElementsByTagName('html')[0].outerHTML + 
+  "<script>" + snippets + "</script></html>");
+  return stateText;
 }
 
 /*let clearButton = document.getElementById("clear");

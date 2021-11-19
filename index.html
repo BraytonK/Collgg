@@ -24,39 +24,44 @@
 						<!-- <img src = "assets/css/images/logo.png" id="img"> -->
 						<h1>What I've Learned</h1>
 						<p>
+						Today <br> <br>
+						<textarea id="todayNote" name = "todayNote" rows="2" cols ="30"></textarea>
+						<input type = "submit" name = "todaySubmit" id = "todaySubmit" onclick = "openPage(event, 'Before')"/> <br>
+						Before
+						<div id = "Before" class = "tabcontent">
+						</div>
 						<div class = "tab">
-							<table>
-							<tr>
-								<div class = "providedPages")>
-								<th>
-								<button class = "tablinks" onclick = "openPage(event, 'Today')" id="defualtOpen"> Today </button>
-								</th>
-								<th>
-								<button class = "tablinks" onclick = "openPage(event, 'Before')"> Before </button>
-								</th>
-								</div>
-							</tr>
-							</table>
+						<!-- <div class = "providedPages")>
+							<button class = "tablinks" onclick = "openPage(event, 'Today')" id="defualtOpen"> Today </button> <br>
+							<button class = "tablinks" onclick = "openPage(event, 'Before')"> Before </button>
+						</div> 
 						<div id = "Today" class = "tabcontent">
-							<input type = "text" name = "todayNote" id = "todayNote"/>
-							<input type = "submit" name = "todaySubmit" id = "todaySubmit"/> <br>
+							<textarea id="todayNote" name = "todayNote" rows="2" cols ="30"></textarea> -->
+							<!-- <input type = "text" name = "todayNote" id = "todayNote"/> -->
 								<!--User uploads screen shot of notes then explains what they've learned-->
 								<!--This gets converted into a markown file-->
 								<!--User organized markdown files into there own folder system (which is viewed as books)-->
 								<!--These books can be drug into the browser to be searched for keys and contents-->
 						</div>
-						<div id = "Before" class = "tabcontent">
-						</div>
 						</div>
 					</header>
-					<footer id="footer">
-						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
-					</footer>
 				</div>
 			        </p>
 		</div>
 		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.onload = function() { 
+				document.body.classList.remove('is-preload');
+				var start = document.createElement('p');
+				var a = document.createElement('a');
+				a.id = "clear";
+				// send as type application/octet-stream to force download, not in browser
+				a.href = saveState();
+
+				a.innerText = "Save Page";
+
+				start.appendChild(a);
+				document.getElementById("Before").appendChild(start);
+			}
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>

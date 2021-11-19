@@ -51,12 +51,19 @@ footer, header, hgroup, menu, nav, section {
 		}
 
 	body, input, select, textarea {
-		color: #fff;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 15pt;
 		font-weight: 300 !important;
 		letter-spacing: -0.025em;
 		line-height: 1.75em;
+	}
+
+	body {
+		color: #fff;
+	}
+
+	input, select, textarea {
+		color: black;
 	}
 
 	a {
@@ -382,6 +389,12 @@ footer, header, hgroup, menu, nav, section {
 			margin: 0.75em 0 0.25em 0;
 			opacity: 0.75;
 		}
+		
+		#header a {
+			font-size: 1.25em;
+			margin: 0.75em 0 0.25em 0;
+			opacity: 0.75;
+		}
 
 
 /* Img */
@@ -503,8 +516,10 @@ footer, header, hgroup, menu, nav, section {
 	position: relative;
 		width: 200px;
 		height: auto;
-		background-color: lightyellow;
+	background-color: lightyellow;
+	color: black;
 	}
+	
 	.border{
 	border: 8px solid #666;
 	}
