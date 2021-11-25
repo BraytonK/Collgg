@@ -29,10 +29,15 @@ function download(text) {
   // Creates element in the DOM
   // var lines = text.split("::");
   let snippet = document.createElement('div');
+  let innerSnippet = document.createElement('textarea');
 
   snippet.classList.add('snippet');
-  snippet.innerHTML = urlify(text);
-  document.getElementById("Before").insertBefore(snippet, document.getElementById("Before").firstChild);
+  innerSnippet.value = urlify(text);
+  snippet.appendChild(innerSnippet);
+  document.getElementById("Before").insertBefore(innerSnippet, document.getElementById("Before").firstChild);
+  //TODO error lies here
+  //Also the save button is savign the some, maybe the inner html needs to be written to the text area
+  document.getElementById('save').innerHTML = "<a href = " + saveState() + "> Save </a>";
   //
   }
 
@@ -45,6 +50,15 @@ function download(text) {
     // return text.replace(urlRegex, '<a href="$1">$1</a>')
   }
 
+  function htmlify() {
+    let nodeList = document.getElementById("Before").childNodes;
+    // use "before" childNodes
+    let nodeHtml = '';
+    for (let i = 0; i < nodeList.length; i++) {
+      nodeHtml = nodeHtml + "<h1> " + nodeList[i].value + " </h1>";
+    }
+    return nodeHtml;
+  }
 
 /**  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("<h1>" + text + "</h1>"));
   element.setAttribute('download', filename);
@@ -58,14 +72,11 @@ function startup() {
   // create the link to trigger download
   // you could alternatively fetch an existing tag and update it
   var start = document.createElement('p');
-  var a = document.createElement('a');
-  a.id = "clear";
+  var saveBtn = document.createElement('button');
+  saveBtn.id = "save";
   // send as type application/octet-stream to force download, not in browser
-  a.href = saveState();
 
-  a.innerText = "Save Page";
-
-  start.appendChild(a);
+  start.appendChild(saveBtn);
   document.getElementById("Before").appendChild(start);
 
   /**download("Create a fresh Collgg Page::Click the 'new page' button at the bottom of the 'before' section");
@@ -79,14 +90,16 @@ function startup() {
 function saveState() {
   let stateText = "data:application/octet-stream;base64,";
   
-  let snippets = "download(\"test\");"; 
-  let start = document.getElementById('Before');
-  while (start.firstChild) {
-    snippets = snippets + "download(\"" + start.lastChild.innerText + "\"); ";
-    start.removeChild(start.lastChild);
-  }
-  stateText = stateText + btoa("<html>"+ document.getElementsByTagName('html')[0].outerHTML + 
-  "<script>" + snippets + "</script></html>");
+  let snippets = "document.createElement(\"div\");"; 
+  let start = document.getElementById("Before");
+  let startTail = document.getElementById("Before").lastChild;
+  let snippetHtml = htmlify();
+  /**while (start.lastChild = startTail) {
+    snippets = snippets + "download(\"" + start.firstChild.firstChild.value + "\"); ";
+    start.removeChild(start.firstChild);
+  }**/
+  stateText = stateText + btoa("<html>"+ document.getElementsByTagName('html')[0].outerHTML + htmlify() + 
+  "</html>");
   return stateText;
 }
 
@@ -107,3 +120,7 @@ document.getElementById("todaySubmit").addEventListener("click", function(){
   
   download(text);
 }, false);
+
+//document.getElementById("save").addEventListener("click", function(){
+  //TODO
+//}, false);

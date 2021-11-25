@@ -54,16 +54,9 @@
 		<script>
 			window.onload = function() { 
 				document.body.classList.remove('is-preload');
-				var start = document.createElement('p');
-				var a = document.createElement('a');
-				a.id = "clear";
-				// send as type application/octet-stream to force download, not in browser
-				a.href = saveState();
-
-				a.innerText = "Save Page";
-
-				start.appendChild(a);
-				document.getElementById("Before").appendChild(start);
+				var saveBtn = document.createElement('button');
+				saveBtn.id = "save";
+  				document.getElementById("Before").appendChild(saveBtn);
 			}
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
