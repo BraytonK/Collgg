@@ -1,13 +1,3 @@
-/**let selectedFile = document.getElementById("picker").files[0];
-let reader = new FileReader();
-reader.addEventListener("loadend", () => { let data = reader.result; });
-interpret(reader.readAsText(selectedFile));
-
-function interpret(fileData) {
-  console.log(fileData);
-  let concept = document.getElementById("documentConcept");
-  concept.textContent = "hello";
-}*/
 function openPage(evt, pageName) {
   let i, tabcontent, tablinks;
 
@@ -28,16 +18,22 @@ function openPage(evt, pageName) {
 function download(text) {
   // Creates element in the DOM
   // var lines = text.split("::");
-  let snippet = document.createElement('div');
+  let outerSnippet = document.createElement('div');
   let innerSnippet = document.createElement('textarea');
+  //TODO, debug this
+  let removeButton = document.createElement("BUTTON");
 
-  snippet.classList.add('snippet');
   innerSnippet.value = urlify(text);
-  snippet.appendChild(innerSnippet);
-  document.getElementById("Before").insertBefore(innerSnippet, document.getElementById("Before").firstChild);
+  outerSnippet.classList.add('snippet');
+  removeButton.innerHTML = "REMOVE";
+  removeButton.onclick =  removeSelectedNode;
+  outerSnippet.appendChild(innerSnippet);
+  outerSnippet.appendChild(removeButton);
+
+  //innerSnippet.onblur = saveState; 
+  document.getElementById("Before").insertBefore(outerSnippet, document.getElementById("Before").firstChild);
   //TODO error lies here
   //Also the save button is savign the some, maybe the inner html needs to be written to the text area
-  document.getElementById('save').innerHTML = "<a href = " + saveState() + "> Save </a>";
   //
   }
 
@@ -55,9 +51,10 @@ function download(text) {
     // use "before" childNodes
     let nodeHtml = '';
     for (let i = 0; i < nodeList.length; i++) {
-      nodeHtml = nodeHtml + "<h1> " + nodeList[i].value + " </h1>";
+      //nodeHtml = nodeHtml + "<h1> " + nodeList[i].value + " </h1>";
+      nodeList[i].innerHTML = nodeList[i].value;
     }
-    return nodeHtml;
+    //return nodeHtml;
   }
 
 /**  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("<h1>" + text + "</h1>"));
@@ -71,13 +68,14 @@ function download(text) {
 function startup() {
   // create the link to trigger download
   // you could alternatively fetch an existing tag and update it
-  var start = document.createElement('p');
-  var saveBtn = document.createElement('button');
-  saveBtn.id = "save";
+  //var start = document.createElement('p');
+  //var saveBtn = document.createElement('button');
+ // saveBtn.id = "save";
   // send as type application/octet-stream to force download, not in browser
 
-  start.appendChild(saveBtn);
-  document.getElementById("Before").appendChild(start);
+  //start.appendChild(saveBtn);
+  //document.getElementById("Before").appendChild(start);
+  //saveBtn.click = saveState;
 
   /**download("Create a fresh Collgg Page::Click the 'new page' button at the bottom of the 'before' section");
   download("Save current Collgg page::Right click -> 'save as' , should work with any browser");
@@ -98,9 +96,11 @@ function saveState() {
     snippets = snippets + "download(\"" + start.firstChild.firstChild.value + "\"); ";
     start.removeChild(start.firstChild);
   }**/
-  stateText = stateText + btoa("<html>"+ document.getElementsByTagName('html')[0].outerHTML + htmlify() + 
+  stateText = stateText + btoa("<html>"+ document.getElementById('Before').outerHTML + htmlify() + 
   "</html>");
-  return stateText;
+  document.getElementById('save').innerHTML = "<a href = " + stateText + "> Save </a>";
+  console.log("saved");
+  console.log(stateText);
 }
 
 /*let clearButton = document.getElementById("clear");
@@ -121,6 +121,19 @@ document.getElementById("todaySubmit").addEventListener("click", function(){
   download(text);
 }, false);
 
-//document.getElementById("save").addEventListener("click", function(){
-  //TODO
-//}, false);
+
+function removeSelectedNode() {
+  selectedSnippet = document.activeElement;
+  console.log("removed: " + selectedSnippet.parentNode.tagName);
+  selectedSnippet.parentNode.remove();
+}
+
+/**var userSelection = document.getElementsByClassName('snippet');
+
+for(var i = 0; i < userSelection.length; i++) {
+  (function(index) {
+    userSelection[index].addEventListener("focusout", function() {
+       console.log("Clicked index: " + index);
+     })
+  })(i);
+}**/

@@ -502,13 +502,6 @@ footer, header, hgroup, menu, nav, section {
 
 /* Snippet */
 
-	#f0 {
-	width:200px;
-	height:100px;
-	background:green;
-	align-content: center;
-	}
-
 	/* CSS talk bubble */
 	.snippet {
 	margin: 40px;
@@ -516,42 +509,28 @@ footer, header, hgroup, menu, nav, section {
 	position: relative;
 		width: 200px;
 		height: auto;
+	/*background-color: lightyellow;*/
+	font-size: Max(16px, 1em);
+	font-family: inherit;
+	padding: 0.25em 0.5em;
 	background-color: lightyellow;
-	color: black;
+	border: 2px solid var(--input-border);
+	border-radius: 4px;
+	transition: 180ms box-shadow ease-in-out;color: black;
 	}
 	
-	.border{
-	border: 8px solid #666;
-	}
-	.round{
-	border-radius: 30px;
-		-webkit-border-radius: 30px;
-		-moz-border-radius: 30px;
-
-	}
-
-	/* Right triangle placed top left flush. */
-	.tri-right.border.left-top:before {
-		content: ' ';
-		position: absolute;
-		width: 0;
-		height: 0;
-	left: -40px;
-		right: auto;
-	top: -8px;
-		bottom: auto;
-		border: 32px solid;
-		border-color: #666 transparent transparent transparent;
-	}
-	.tri-right.left-top:after{
-		content: ' ';
-		position: absolute;
-		width: 0;
-		height: 0;
-	left: -20px;
-		right: auto;
-	top: 0px;
-		bottom: auto;
-		border: 22px solid;
-		border-color: lightyellow transparent transparent transparent;
+	.snippet:focus {
+	border-color: hsl(
+		var(--input-focus-h),
+		var(--input-focus-s),
+		var(--input-focus-l)
+	);
+	box-shadow: 0 0 0 3px
+		hsla(
+		var(--input-focus-h),
+		var(--input-focus-s),
+		calc(var(--input-focus-l) + 40%),
+		0.8
+		);
+	outline: 3px solid transparent;
 	}
