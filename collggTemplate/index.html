@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+      <title>Brayton Kerekffy</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
+      <link rel="stylesheet" href="main.css" />
+      <script src = "script.js" defer></script>
+
+      <!-- Ajax-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Scroll-spy navbar-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body class = "is-preload" data-spy="scroll" data-target=".navbar">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <div id="bg"></div>
+      <div id="overlay"></div>
+
+        <!-- Dynamic Navbar -->
+        <!-- Changes based on the subtopics in the article-->
+        <nav id="navbar" class="navbar">
+          <ul class ="nav" id="nav">
+            <li id="entry-nav-item">A <a href="https://collgg.com"><img src="collgg-logo.png" width="50" height="35" id="logo"></a></img> generated page</li>
+          </ul>
+        </nav>
+
+        <!-- Header -->
+        <header id ="header">
+
+          <!-- Name -->
+          <h1><div id = "firstName">Brayton</div>Kerekffy</h1>
+
+          <!-- Snippet Browser -->
+          <div id = "allcontent">
+              <!-- Snippet Tabs -->
+                <div class="tab">
+                <table class="snippettabs">
+                  <tr>
+                    <div id="dynamictabs"></div>
+                      <th>
+                        <button class="tablinks" onclick="openPage(event, 'aboutme')" id="defaultOpen"> About Me </button>
+                      </th>
+                      <th>
+                        <button class="tablinks" onclick="openPage(event, 'projects')"> Projects </button>
+                      </th>
+                      <th>
+                        <button class="tablinks" onclick="openPage(event, 'contact')"> Contact </button>
+                      </th>
+                  </tr>
+                </table>
+                </div>
+          </div>
+
+            <article class = "snippetbrowser">
+              <!-- About Me -->
+              <div id="aboutme" class="tabcontent">
+                  <div id="About Me">
+                  <h2>About Me</h2>
+                  <article>
+                    <div class="snippet">
+                    <div class="snippet-container">
+                      <div class="snippet-row-padding">
+                        <div class="snippet-col">
+                          <div class="snippet-card snippet-round snippet-white">
+                            <div class="snippet-container">
+                              <p><div id="bio"></div></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                    </div>
+                  </article>
+                  </div>
+                  <div id="Where I am based out of">
+                  <h2>Where I am based out of</h2>
+                  <article>
+                    <div class="snippet">
+                    <div class="snippet-container">
+                      <div class="snippet-row-padding">
+                        <div class="snippet-col">
+                          <div class="snippet-card snippet-round snippet-white">
+                            <div class="snippet-container">
+                              <h3>Location</h3>
+                              <p><div id="location"></div></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                    </div>
+                  </article>
+                  </div>
+                  <br> **Note for web-based peers** <br>
+                  This page is dynamically loaded from my <a href="https://github.com/BraytonK/BraytonK">Github</a>
+                </div>
+
+              <!-- Projects -->
+              <div id="projects" class="tabcontent">
+               <div id="My Personal Toolchain">
+                <h2>Who Told You That You Were Naked?</h2>
+                <article>
+                  <div id="all">
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Fundraising Progress</h3>
+                                <p>
+                                  In Development Stages
+                                  <li>
+                                    <div class="links">
+                                      <a class="openpop" href="https://buy.stripe.com/4gwcNWe1ebtC3VSbIJ">Current Amount Raised</a>
+                                    </div>
+                                    <div class="wrapper">
+                                      <div class="popup">
+                                          <iframe src="">
+                                              <p>Your browser does not support iframes.</p>
+                                          </iframe>
+                                      <a href="#" class="close">X</a>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </p>
+                                <h3>T-Shirt 1</h3>
+                                <p>
+                                  The first design
+                                  <li>
+                                    <div class="links">
+                                      <a class="openpop" href="https://app.skiff.com/docs/6cbbbff7-d02c-4911-9691-514d99f140bd#3jaXO96QBB1TYrXgth1lYIqmmrYUG0%2FqjmGPjhn8xtI%3D">See T-Shirt</a>
+                                      <a class="openpop" href="https://buy.stripe.com/4gwcNWe1ebtC3VSbIJ">Buy Now</a>
+                                    </div>
+                                    <div class="wrapper">
+                                      <div class="popup">
+                                          <iframe src="">
+                                              <p>Your browser does not support iframes.</p>
+                                          </iframe>
+                                      <a href="#" class="close">X</a>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                </div>
+                <div id="My Personal Toolchain">
+                <h2>My Personal Toolchain</h2>
+                <article>
+                  <div id="all">
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Collgg</h3>
+                                <li><a href="https://www.collgg.com/">https://www.collgg.com/</a></li>
+                                <p>
+                                  A website that helps me take what I've learned and compilate it into a neat encyclopedia.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                </div>
+                <div id="Other Projects">
+                <h2>Other Projects</h2>
+                <article>
+                  <div id="Github">
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Github</h3>
+                                <p>
+                                  <a href="https://github.com/BraytonK">https://github.com/BraytonK</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                </div>
+              </div>
+
+              <!-- Contact Me -->
+              <div id="contact" class="tabcontent">
+                <div id="Contacts">
+                <h2>Contacts</h2>
+                <article>
+                  <div id="email">
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Email</h3>
+                                <p>
+                                  brayton.k14@gmail.com
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            </article>
+          </div>
+        </header>
+  </body>
+  <script type="text/javascript">
+
+  // Github Ajax
+
+    window.onload = function() { 
+      document.body.classList.remove('is-preload');
+    }
+    window.ontouchmove = function() { return false; }
+    window.onorientationchange = function() { document.body.scrollTop = 0; }
+    $(document).ready(function(){
+        $('#bio').html('<div id="loader"><p>Loading...</p></div>');
+        
+        var requri   = 'https://api.github.com/users/BraytonK';
+        var repouri  = 'https://api.github.com/users/BraytonK/repos';
+        
+        requestJSON(requri, function(json) {
+          if(json.message == "Not Found") {
+            $('#bio').html("<h2>No User Info Found</h2>");
+          }
+          else {
+            var bio = json.bio;
+            var location = json.location;
+            
+            var outhtml = bio;
+            console.log(outhtml);
+            
+              $('#bio').html(bio);
+              $('#location').html(location);
+            } // end outputPageContent()
+          }); // end requestJSON Ajax call
+      
+      function requestJSON(url, callback) {
+        $.ajax({
+          url: url,
+          complete: function(xhr) {
+            callback.call(null, xhr.responseJSON);
+          }
+        });
+      }
+      $(document).ready(function () {
+      $(".popup").hide();
+      $(".openpop").click(function (e) {
+          e.preventDefault();
+          $("iframe").attr("src", $(this).attr('href'));
+          $(".links").fadeOut('slow');
+          $(".popup").fadeIn('slow');
+      });
+
+      $(".close").click(function () {
+          $(this).parent().fadeOut("slow");
+          $(".links").fadeIn("slow");
+      });
+});
+    });
+
+  // Topic navigation
+
+    function openPage(evt, pageName) {
+      let i, tabcontent, tablinks;
+
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for(i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      document.getElementById(pageName).style.display = "block";
+      evt.currentTarget.className += " active";
+      loadDynamicNavbar(pageName);
+    }
+
+  // Dynamic tab content
+
+    // Get the header
+    var header = document.getElementById("navbar");
+
+    // Get the offset position of the navbar
+    var sticky = header.offsetTop;
+
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    window.onscroll = function() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+
+    function loadDynamicNavbar(pageName) {
+
+      // Remove existing tabs
+      var parent = document.getElementById("nav");
+      while (parent.firstChild) {
+        parent.firstChild.remove();
+      }
+
+      // Scan headers
+      var content = document.getElementById(pageName).getElementsByTagName("H2");
+      for (var i = 0; i < content.length; i++) {
+        // Create a new list item for each content header
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        li.className = "nav-item";
+        a.className = "nav-link";
+        a.innerHTML = "#" + content[i].innerHTML;
+        a.href = "#" + content[i].innerHTML;
+        // Append the div to the navbar
+        li.appendChild(a);
+        document.getElementById("nav").appendChild(li);
+      }
+    }
+  </script>
+</html>
