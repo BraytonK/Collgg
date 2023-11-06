@@ -1,6 +1,6 @@
 # React + Tailwind
 
-A sample app with React and Tailwind Javascript that showcases authentication, datastore and storage usage.
+Collgg Demo Site
 
 ## Getting started
 
@@ -15,5 +15,16 @@ npm ci
 ## Local development
 
 ```
-npm run start
+Collgg build:
+
+Use NVM 18 + 
+
+* npm ci
+* npm i @junobuild/core  
+* npm run dev
+* npm i -g @junobuild/cli
+* juno login    
+* npm run build   
+* juno init     
+* juno deploy 
 ```
